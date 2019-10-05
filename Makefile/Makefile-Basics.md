@@ -23,7 +23,7 @@ by the rule.
 
 2. **dependencies** are first searched if they are present before executing the rule. If any dependency is missing then its rule will be executed first. And when rule for that dependency is not present `make` will return an error.
 
-3. [Tab] is compulsory before specifying each recipe for that target. And use only the `TAB` for this purpose.
+3. **[Tab]** is compulsory before specifying each recipe for that target. And use only the `TAB` for this purpose.
 
 4. The **recipe** in a target are nothing but the command statements required to generate the target. There can be multiple recipe line in a rule.
 
