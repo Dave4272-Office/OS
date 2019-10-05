@@ -20,5 +20,5 @@ We use `make` as follows:
 4.  To install the software project we use `make install`.
     -   needs a \'Phony\' rule named `install` in the `Makefile`.
 
-## Makefile
-It is Discussed [Here]("Makefile\Makefile-Basics.md").
+# Next
+## [Makefile](Makefile\Makefile-Basics.md)

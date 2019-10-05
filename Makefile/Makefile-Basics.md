@@ -1,5 +1,14 @@
 # Simple Makefile
 
+## Name of Makefile
+The Makefile must be named either of these:
+- `Makefile` (Recommended),
+- `makefile`.
+
+> Try to always use `Makefile` as name of the file.
+
+> Note: If the Makefile is differently named say `Android` then you must add the argument `-f Android` or `--file=Android` to run the make command.
+
 ## Comments
 The syntax of comments in a make file is:
 
@@ -108,18 +117,18 @@ hi.o: hi.c hi.h
 ```
 
 ## Ignoring Certain Recipies
-`make` has an implicit rule to update an `.o` file using `cc -c` corresponding to `.c` file.
-as such recipies and dependencies of such `.o` and `.c` can be omitted.
+`make` has an implicit rule to update an `.o` file.(All implicit rules are given [here][1], see later, link is also at the end.)
+as such recipies and dependencies of such `.o` and its source file can be omitted.
 
-### Example Makefile v2 minimized (if using cc)
+### Example Makefile v2 minimized
 Assume in the following we are using the cc compiler
 
 ```make
 # Let CC specify the compiler
-# CC = cc NOT REQUIRED
+CC = g++
 
 # Let CFLAGS contain the Compilation Flags
-# CFLAGS = -c NOT REQUIRED
+CFLAGS = -c -Wall
 
 # Let OBJ contain list of all final Object Files
 OBJ = main.o hi.o
@@ -130,12 +139,13 @@ all: main
 
 # This Rule creates the dependency main of all
 main: $(OBJ)
-	cc $(OBJ) -o main
+	$(CC) $(OBJ) -o main
 
 # The recipe of the rules compressed
 main.o: main.h
 hi.o: hi.h
 ```
+> Try to not minimize using Implicit Rules.
 
 ## Rules for cleaning the directory
 We can specify rules for cleaning the working directory as follows
@@ -154,7 +164,7 @@ clean:
 ```make
 .PHONY : clean
 clean :
-	-rm main $(OBJ)
+	rm main $(OBJ)
 ```
 
 > *Always specify the clean rule at the end of the makefile*
@@ -193,5 +203,13 @@ hi.o: hi.c hi.h
 
 .PHONY : clean
 clean :
-	-rm main $(OBJ)
+	rm main $(OBJ)
 ```
+
+## References
+[Implicit Rules][1]
+
+# Next
+## [Complex Makefile](Makefile-Complex.md)
+
+[1]: Implicit-Rules.md
