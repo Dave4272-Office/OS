@@ -21,4 +21,4 @@ We use `make` as follows:
     -   needs a \'Phony\' rule named `install` in the `Makefile`.
 
 # Next
-## [Makefile](Makefile\Makefile-Basics.md)
+## [Makefile](Makefile/Makefile-Basics.md)
